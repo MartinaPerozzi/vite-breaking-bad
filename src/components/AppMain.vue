@@ -11,9 +11,14 @@ export default {
 </script>
 
 <template>
-    <main class="container">
+    <main class="container mt-5">
         <AppCardCharacters />
     </main>
 </template>
 
-<style lang="scss" scope></style>
+<style lang="scss" scope>
+main {
+    background-color: white;
+    padding: 2rem;
+}
+</style>
