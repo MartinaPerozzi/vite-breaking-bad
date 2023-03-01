@@ -52,7 +52,8 @@ export default {
 .found-banner {
     background-color: rgb(45, 45, 45);
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem;
+
 }
 
 .card-bg {

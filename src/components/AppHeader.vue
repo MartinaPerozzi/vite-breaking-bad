@@ -31,7 +31,7 @@ export default {
 <style lang="scss" scoped>
 header {
     background-color: white;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
 
     div {
         gap: 1rem;
