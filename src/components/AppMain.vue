@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <main class="container mt-5">
+    <main class="container mt-5 ps-5 pe-5">
         <AppCardCharacters />
     </main>
 </template>

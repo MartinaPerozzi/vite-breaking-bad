@@ -26,23 +26,34 @@ export default {
 </script>
 
 <template>
-    <div class="row row-cols-2 row-cols-md-5 g-3">
-        <div class="col" v-for="character in characters">
-            <div class="card-bg">
-                <div v-for="characterimage in character.card_images">
-                    <img :src="characterimage.image_url" alt="YuGiOhCards">
-                </div>
-                <div class="card-info d-flex flex-column">
-                    <h3>{{ character.name }}</h3>
-                    <span>{{ character.archetype }}</span>
+    <section>
+        <div class="found-banner">
+            <h4> Found {{ characters.length }} cards</h4>
+        </div>
+        <div class="row row-cols-2 row-cols-md-5 g-3">
+            <div class="col" v-for="character in characters">
+                <div class="card-bg">
+                    <div v-for="characterimage in character.card_images">
+                        <img :src="characterimage.image_url" alt="YuGiOhCards">
+                    </div>
+                    <div class="card-info d-flex flex-column">
+                        <h3>{{ character.name }}</h3>
+                        <span>{{ character.archetype }}</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <style lang="scss" scope>
 @use "../assets/scss/partials/_variables.scss" as*;
+
+.found-banner {
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 1rem 2rem;
+}
 
 .card-bg {
     background-color: $maincolor;
