@@ -18,6 +18,7 @@ export default {
       // POI..rispondi.
       .then((response) => {
         console.log(store);
+        console.log(response);
         // Metti la risposta ottenuto dentro l'array in store- non con push ma con assegnazione- così sarà una informazione globale
         store.characters = response.data.data;
       })
