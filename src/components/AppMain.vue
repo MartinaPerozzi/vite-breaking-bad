@@ -1,5 +1,5 @@
 <script>
-import selectType from "./selectType.vue";
+import SelectType from "./SelectType.vue";
 import AppCardCharacters from "./AppCardCharacters.vue";
 export default {
     data() {
@@ -8,13 +8,14 @@ export default {
 
         }
     },
-    components: { AppCardCharacters, selectType }
+    components: { AppCardCharacters, SelectType },
+
 }
 
 </script>
 
 <template>
-    <selectType class="select" />
+    <SelectType class="select" />
     <main class="container mt-5 ps-5 pe-5">
         <AppCardCharacters />
     </main>

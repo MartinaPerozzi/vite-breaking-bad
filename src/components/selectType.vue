@@ -35,6 +35,7 @@ export default {
                 "Skill Card",
                 "Token",
             ],
+            selectedType: "",
 
         }
     },
@@ -45,9 +46,11 @@ export default {
 
 <template>
     <div class="">
-        <select name="type" id="card-type">
-            <option :value="typology" v-for="typology in types">{{ typology }} </option>
-        </select>
+        <form action="">
+            <select name="type" id="card-type" v-model="selectedType">
+                <option :value="typology" v-for="typology in types" :key="type">{{ typology }} </option>
+            </select>
+        </form>
 
     </div>
 </template>
