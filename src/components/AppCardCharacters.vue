@@ -1,6 +1,7 @@
 <script>
 // Dopo aver nmp i axios nel terminale lo importo
 import axios from "axios";
+import AppCard from "./AppCard.vue";
 
 
 export default {
@@ -22,6 +23,8 @@ export default {
                 this.characters = response.data.data;
             })
     },
+    components: { AppCard },
+
 }
 </script>
 
@@ -31,17 +34,9 @@ export default {
             <h4> Found {{ characters.length }} cards</h4>
         </div>
         <div class="row row-cols-2 row-cols-md-5 g-3">
-            <div class="col" v-for="character in characters">
-                <div class="card-bg">
-                    <div v-for="characterimage in character.card_images">
-                        <img :src="characterimage.image_url" alt="YuGiOhCards">
-                    </div>
-                    <div class="card-info d-flex flex-column">
-                        <h3>{{ character.name }}</h3>
-                        <span>{{ character.archetype }}</span>
-                    </div>
-                </div>
-            </div>
+            <AppCard v-for="character in characters" :cardImg="character.card_images[0].image_url"
+                :cardName="character.name" :cardType="character.type" />
+
         </div>
     </section>
 </template>

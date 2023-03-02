@@ -3,6 +3,7 @@ import AppCardCharacters from "./AppCardCharacters.vue";
 export default {
     data() {
         return {
+
         }
     },
     components: { AppCardCharacters }
