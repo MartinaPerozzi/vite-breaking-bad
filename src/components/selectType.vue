@@ -35,14 +35,14 @@ export default {
                 "Skill Card",
                 "Token",
             ],
-            selectedType: "",
+            selectionType: "",
 
         }
     },
     emits: ["selected"],
     methods: {
         selectedTypeFunction() {
-            this.$emit("selected", this.selectedType);
+            this.$emit("selected", this.selectionType);
         }
     },
 
@@ -53,8 +53,9 @@ export default {
 <template>
     <div class="">
         <form action="" @submit.prevent="">
-            <select name="type" id="card-type" @change="if (this.selectedType) selectedTypeFunction();">
-                <option :value="typology" v-for="typology in types" :key="type">{{ typology }} </option>
+            <select name="type" id="card-type" v-model="selectionType"
+                @change="if (this.selectionType) selectedTypeFunction();">
+                <option v-for="typology in types" :key="type">{{ typology }} </option>
             </select>
         </form>
 

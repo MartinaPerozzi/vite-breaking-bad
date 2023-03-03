@@ -1,7 +1,7 @@
 <script>
 import SelectType from "./SelectType.vue";
 import AppCardCharacters from "./AppCardCharacters.vue";
-import axios from "axios"
+import axios from "axios";
 import { store } from "../data/store";
 export default {
     data() {
@@ -12,6 +12,7 @@ export default {
         }
     },
     components: { AppCardCharacters, SelectType },
+
     methods: {
         fetchCards(url) {
             store.isPageLoading = true;
@@ -19,18 +20,19 @@ export default {
                 .get(url)
                 .then((response) => {
                     console.log(response);
-                    store.cards = response.data.data
+                    store.characters = response.data.data;
                 })
 
         },
-        fetchSelectedType(selectedType) {
-            console.log(selectedType);
+        fetchSelectedType(selectionType) {
+            console.log(selectionType);
 
-            this.fetchCards(`${store.endpoint}?type=${selectedType}`);
+            this.fetchCards(`${store.endpoint}&type=${selectionType}`);
         },
     },
     created() {
         this.fetchCards(store.endpoint);
+        console.log(this.fetchCards);
     }
 
 }

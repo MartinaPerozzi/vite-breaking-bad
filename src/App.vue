@@ -11,18 +11,18 @@ export default {
       store,
     }
   },
-  // Created--> chiama al load della pagina
-  created() {
-    // axios chiama API "..."
-    axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
-      // POI..rispondi.
-      .then((response) => {
-        console.log(store);
-        console.log(response);
-        // Metti la risposta ottenuto dentro l'array in store- non con push ma con assegnazione- così sarà una informazione globale
-        store.characters = response.data.data;
-      })
-  },
+  // // Created--> chiama al load della pagina
+  // created() {
+  //   // axios chiama API "..."
+  //   // axios.get("https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0")
+  //   //   // POI..rispondi.
+  //   //   .then((response) => {
+  //   //     console.log(store);
+  //   //     console.log(response);
+  //   //     // Metti la risposta ottenuto dentro l'array in store- non con push ma con assegnazione- così sarà una informazione globale
+  //   //     store.characters = response.data.data;
+  //   //   })
+  // },
   components: { AppHeader, AppMain }
 }
 
