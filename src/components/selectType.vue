@@ -39,6 +39,12 @@ export default {
 
         }
     },
+    emits: ["selected"],
+    methods: {
+        selectedTypeFunction() {
+            this.$emit("selected", this.selectedType);
+        }
+    },
 
 }
 
@@ -46,8 +52,8 @@ export default {
 
 <template>
     <div class="">
-        <form action="">
-            <select name="type" id="card-type" v-model="selectedType">
+        <form action="" @submit.prevent="">
+            <select name="type" id="card-type" @change="if (this.selectedType) selectedTypeFunction();">
                 <option :value="typology" v-for="typology in types" :key="type">{{ typology }} </option>
             </select>
         </form>

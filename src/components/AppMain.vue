@@ -1,21 +1,44 @@
 <script>
 import SelectType from "./SelectType.vue";
 import AppCardCharacters from "./AppCardCharacters.vue";
+import axios from "axios"
+import { store } from "../data/store";
 export default {
     data() {
         return {
+            store,
 
 
         }
     },
     components: { AppCardCharacters, SelectType },
+    methods: {
+        fetchCards(url) {
+            store.isPageLoading = true;
+            axios
+                .get(url)
+                .then((response) => {
+                    console.log(response);
+                    store.cards = response.data.data
+                })
+
+        },
+        fetchSelectedType(selectedType) {
+            console.log(selectedType);
+
+            this.fetchCards(`${store.endpoint}?type=${selectedType}`);
+        },
+    },
+    created() {
+        this.fetchCards(store.endpoint);
+    }
 
 }
 
 </script>
 
 <template>
-    <SelectType class="select" />
+    <SelectType class="select" @selected="fetchSelectedType" />
     <main class="container mt-5 ps-5 pe-5">
         <AppCardCharacters />
     </main>
